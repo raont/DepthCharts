@@ -52,7 +52,8 @@ namespace WebApi.Controllers
         }
 
         /// <summary>
-        /// Gets full depth chart for a game
+        /// Gets full depth chart for a game.
+        /// Specify name of the game not Id
         /// </summary>
         /// <returns></returns>
         [HttpGet("FullDepthChart/{Game}")]
@@ -69,7 +70,7 @@ namespace WebApi.Controllers
                 outPut.Append($"{positionDepth.PositionName} - ");
                 foreach (var player in positionDepth.PlayerList)
                 {
-                    outPut.Append($"(#{player.Value.PlayerId}, {player.Value.FirstName} {player.Value.FirstName}), ");
+                    outPut.Append($"(#{player.Value.PlayerId}, {player.Value.FirstName}{player.Value.LastName}), ");
                 }
                 outPut.Append("\r\n");
             }

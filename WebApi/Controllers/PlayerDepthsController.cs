@@ -29,6 +29,7 @@ namespace WebApi.Controllers
 
         /// <summary>
         /// Add player to the position depth
+        /// Note: Wherever you are using position depth, it starts from 0 not 1
         /// </summary>
         /// <param name="PlayerPositionDto">Player Depth details</param>
         [HttpPost("add-player-depth")]
@@ -44,11 +45,11 @@ namespace WebApi.Controllers
         }
 
         /// <summary>
-        /// Remove player from position depth
+        /// Remove player from position 
+        /// Note: Wherever you are using position depth, it starts from 0 not 1
         /// </summary>
         /// <param name="playerDepthDetails">Player Depth details</param>
         [HttpDelete("remove-player-position")]
-        
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<List<PlayerDto>> RemovePlayerPosition([FromBody] SelectedPositionDto playerDepthDetails)
         {
@@ -61,10 +62,10 @@ namespace WebApi.Controllers
 
         /// <summary>
         /// Get player backup from current position depth
+        /// Note: Wherever you are using position depth, it starts from 0 not 1
         /// </summary>
         /// <param name="playerDepthDetails">Player Depth details</param>
         [HttpPut("Get-player-backup")]
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<List<PlayerDto>> GetPlayerBackup([FromBody] SelectedPositionDto playerDepthDetails)
         {
